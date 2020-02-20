@@ -1,0 +1,36 @@
+{
+    "name": "ytekeli/msfrpc-client",
+    "type": "library",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yahya Tekeli",
+            "email": "yahyatekeli@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.3",
+        "phpunit/phpunit": "^8.5.1 || ^9.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Ytekeli\\MsfRpcClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ytekeli\\MsfRpcClient\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test:types": "phpstan analyse --ansi",
+        "test:unit": "phpunit --colors=always",
+        "test": [
+            "@test:unit",
+            "@test:types"
+        ]
+    }
+}
