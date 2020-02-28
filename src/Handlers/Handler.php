@@ -21,14 +21,13 @@ use Ytekeli\MsfRpcClient\Resource\Collection;
 
 class Handler implements HandlerContract
 {
-
     /**
      * @var MsfRpcClient Msf RPC Client
      */
     public $rpc;
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      *
      * @throws ReflectionException
      */
@@ -44,9 +43,10 @@ class Handler implements HandlerContract
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      *
-     * @param  MsfRpcClient $client MsfRpc client instance
+     * @param MsfRpcClient $client MsfRpc client instance
+     *
      * @return $this|mixed
      */
     public function setRpc(MsfRpcClient $client)
@@ -57,9 +57,10 @@ class Handler implements HandlerContract
     }
 
     /**
-     * @param  string               $method
-     * @param  callable|string|null $callback
-     * @param  array                $params
+     * @param string               $method
+     * @param callable|string|null $callback
+     * @param array                $params
+     *
      * @return mixed
      */
     public function call(string $method = '', $callback = null, array $params = [])
@@ -96,6 +97,7 @@ class Handler implements HandlerContract
             if (get_parent_class($callback) == Collection::class) {
                 $items = $items->toArray();
             }
+
             return new $callback($items, $this);
         }
 

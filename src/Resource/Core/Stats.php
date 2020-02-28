@@ -14,8 +14,8 @@ use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Resource\Resource;
 
 /**
- * Stats Instance
- * @package Ytekeli\MsfRpcClient\Resource\Core
+ * Stats Instance.
+ *
  * @property int $exploits  The number of exploits.
  * @property int $auxiliary The number of auxiliary modules.
  * @property int $post      The number of post modules.

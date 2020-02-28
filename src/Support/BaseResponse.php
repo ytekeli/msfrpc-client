@@ -14,8 +14,8 @@ use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Contracts\Response;
 
 /**
- * Class BaseResponse
- * @package Ytekeli\MsfRpcClient\Support
+ * Class BaseResponse.
+ *
  * @property mixed $result MsfRpc success message
  */
 class BaseResponse implements Response
@@ -27,11 +27,12 @@ class BaseResponse implements Response
 
     /**
      * BaseResponse constructor.
+     *
      * @param Collection|null $response
      */
     public function __construct(Collection $response = null)
     {
-        if (! is_null($response)) {
+        if (!is_null($response)) {
             $this->result = $response->get('result');
         }
     }

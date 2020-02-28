@@ -18,7 +18,7 @@ class ClientFeatureTestCase extends ClientTestCase
     {
         $options = array_merge([
             'authenticate' => true,
-            'password' => 'test',
+            'password'     => 'test',
         ], $config);
 
         return parent::client($options);
