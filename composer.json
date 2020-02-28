@@ -41,7 +41,10 @@
         "test:check-style": "phpcs -p --standard=PSR2 src/",
         "test": [
             "@test:unit",
-            "@test:types",
+            "@test:types"
+        ],
+        "test:full": [
+            "@test",
             "@test:check-style"
         ]
     }
