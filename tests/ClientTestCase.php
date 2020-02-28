@@ -54,10 +54,10 @@ class ClientTestCase extends TestCase
         $mock = new MockHandler($responses);
 
         $config = array_merge([
-            'authenticate' => true,
+            'authenticate'   => true,
             'guzzle_options' => [
-                'handler' => HandlerStack::create($mock)
-            ]
+                'handler' => HandlerStack::create($mock),
+            ],
         ], $config);
 
         return $this->client($config);
@@ -120,7 +120,7 @@ class ClientTestCase extends TestCase
                 'critical'  => true,
                 'name'      => 'MetasploitRPCServer',
                 'started'   => '2020-02-25 15:01:43 +0300',
-            ]
+            ],
         ];
     }
 

@@ -11,8 +11,7 @@
 namespace Ytekeli\MsfRpcClient\Handlers;
 
 /**
- * Exception Handler Instance
- * @package Ytekeli\MsfRpcClient\Handlers
+ * Exception Handler Instance.
  */
 class Exception extends Handler
 {
@@ -22,9 +21,10 @@ class Exception extends Handler
     protected $exception = false;
 
     /**
-     * Set a new exception instance
+     * Set a new exception instance.
      *
      * @param \Exception $exception Exception thrown class
+     *
      * @return void
      */
     public function setException(\Exception $exception): void
@@ -50,6 +50,7 @@ class Exception extends Handler
 
     /**
      * @param string $exceptionClassName
+     *
      * @return bool
      */
     public function instanceOf(string $exceptionClassName = '')

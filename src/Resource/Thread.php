@@ -10,17 +10,16 @@
 
 namespace Ytekeli\MsfRpcClient\Resource;
 
-use Ytekeli\MsfRpcClient\Contracts\Handler;
 use Tightenco\Collect\Support\Collection;
+use Ytekeli\MsfRpcClient\Contracts\Handler;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 
 /**
- * Thread Resource Instance
+ * Thread Resource Instance.
  *
- * @package Ytekeli\MsfRpcClient\Resource
  * @property int|null     $id       Thread ID.
  * @property string|null  $status   Thread status.
- * @property boolean|null $critical Thread is critical.
+ * @property bool|null $critical Thread is critical.
  * @property string|null  $name     Thread name.
  * @property string|null  $started  Timestamp of when the thread started.
  * @property-read Handler $handler  Handler instance.

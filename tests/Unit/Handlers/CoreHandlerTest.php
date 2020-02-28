@@ -12,10 +12,10 @@ namespace Ytekeli\MsfRpcClient\Tests\Unit\Handlers;
 
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\Request;
-use Ytekeli\MsfRpcClient\Resource\Thread;
-use Ytekeli\MsfRpcClient\Resource\Threads;
 use Ytekeli\MsfRpcClient\Resource\Core\Stats;
 use Ytekeli\MsfRpcClient\Resource\Core\Version;
+use Ytekeli\MsfRpcClient\Resource\Thread;
+use Ytekeli\MsfRpcClient\Resource\Threads;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
 class CoreHandlerTest extends ClientTestCase
@@ -39,9 +39,9 @@ class CoreHandlerTest extends ClientTestCase
         $client = $this->clientWithHttpMock([
             $this->createHttpResponsePack([
                 'result' => 'success',
-                'token'  => $this->generateFakeToken()
+                'token'  => $this->generateFakeToken(),
             ]),
-            new ConnectException('cURL error 52: Empty reply from server', new Request('POST', 'test'))
+            new ConnectException('cURL error 52: Empty reply from server', new Request('POST', 'test')),
         ]);
 
         $this->assertTrue($client->core->stop());
@@ -50,7 +50,7 @@ class CoreHandlerTest extends ClientTestCase
     public function testCoreGetGlobal()
     {
         $client = $this->clientMock([
-            'ConsoleLogging' => 'true'
+            'ConsoleLogging' => 'true',
         ]);
 
         $this->assertEquals($client->core->getg('ConsoleLogging'), 'true');
@@ -59,7 +59,7 @@ class CoreHandlerTest extends ClientTestCase
     public function testCoreSetGlobal()
     {
         $client = $this->clientMock([
-            'result' => 'success'
+            'result' => 'success',
         ]);
 
         $this->assertTrue($client->core->setg('consoleLogging', 'false'));
@@ -68,7 +68,7 @@ class CoreHandlerTest extends ClientTestCase
     public function testCoreUnSetGlobal()
     {
         $client = $this->clientMock([
-            'result' => 'success'
+            'result' => 'success',
         ]);
 
         $this->assertTrue($client->core->unsetg('consoleLogging'));
@@ -77,7 +77,7 @@ class CoreHandlerTest extends ClientTestCase
     public function testCoreSave()
     {
         $client = $this->clientMock([
-            'result' => 'success'
+            'result' => 'success',
         ]);
 
         $this->assertTrue($client->core->save());
@@ -146,7 +146,7 @@ class CoreHandlerTest extends ClientTestCase
     public function testCoreKillThread()
     {
         // TODO improve kill test
-        
+
         $this->assertTrue($this->clientMock(['result' => 'success'])->core->kill());
     }
 

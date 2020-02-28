@@ -23,9 +23,8 @@ use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 use Ytekeli\MsfRpcClient\Handlers\Exception as ExceptionHandler;
 
 /**
- * Class MsfRpcClient
+ * Class MsfRpcClient.
  *
- * @package Ytekeli\MsfRpcClient
  * @property AuthHandler    $auth
  * @property CoreHandler    $core
  * @property ExceptionHandler $exception
@@ -66,7 +65,8 @@ class MsfRpcClient extends Container
     /**
      * MsfRpcClient constructor.
      *
-     * @param array $options    Required configuration options
+     * @param array $options Required configuration options
+     *
      * @throws Exception
      */
     public function __construct(array $options = [])
@@ -87,19 +87,19 @@ class MsfRpcClient extends Container
             'no_handlers'   => false,
         ], $options);
 
-        $this->host         = $options['host'];
-        $this->port         = $options['port'];
-        $this->uri          = $options['uri'];
-        $this->ssl          = $options['ssl'];
-        $this->token        = $options['token'] ?? null;
-        $this->guzzleOptions= $options['guzzle_options'];
+        $this->host = $options['host'];
+        $this->port = $options['port'];
+        $this->uri = $options['uri'];
+        $this->ssl = $options['ssl'];
+        $this->token = $options['token'] ?? null;
+        $this->guzzleOptions = $options['guzzle_options'];
         $this->authenticate = $options['authenticate'];
 
-        $this->addHandler(new AuthHandler);
-        $this->addHandler(new ExceptionHandler);
+        $this->addHandler(new AuthHandler());
+        $this->addHandler(new ExceptionHandler());
 
-        if ($this->authenticate !== false || ! is_null($this->token)) {
-            if (! is_null($this->token)) {
+        if ($this->authenticate !== false || !is_null($this->token)) {
+            if (!is_null($this->token)) {
                 // TODO login with token method will be added.
             } else {
                 $this->auth->login($options['username'], $options['password']);
@@ -107,23 +107,24 @@ class MsfRpcClient extends Container
         }
 
         if ($options['no_handlers'] !== true) {
-            $this->addHandler(new CoreHandler);
+            $this->addHandler(new CoreHandler());
         }
     }
 
     /**
-     *
      * @param string $method
-     * @param array $params
-     * @return Response|array
+     * @param array  $params
+     *
      * @throws MsfRpcAuthException
      * @throws MsfRpcException
      * @throws Exception
+     *
+     * @return Response|array
      */
     public function call($method = '', array $params = [])
     {
         if ($method != MsfRpcMethod::AUTH_LOGIN) {
-            if (! $this->isAuthenticated()) {
+            if (!$this->isAuthenticated()) {
                 throw new MsfRpcAuthException(MsfRpcAuthException::UNAUTHENTICATED);
             }
         }
@@ -143,15 +144,15 @@ class MsfRpcClient extends Container
 
         $guzzleOptions = array_merge([
             'headers' => [
-                'Content-Type' => 'binary/message-pack'
+                'Content-Type' => 'binary/message-pack',
             ],
             'body'  => $payload,
-            'verify'=> false
+            'verify'=> false,
         ], $this->guzzleOptions);
 
-        $result = $client->post('http' . ($this->ssl ? 's' : '') . '://' .
-            $this->host . ':' .
-            $this->port .
+        $result = $client->post('http'.($this->ssl ? 's' : '').'://'.
+            $this->host.':'.
+            $this->port.
             $this->uri, $guzzleOptions);
 
         $unpack = $this->decode($result->getBody());
@@ -164,18 +165,16 @@ class MsfRpcClient extends Container
     }
 
     /**
-     *
      * @return bool
      */
     public function isAuthenticated(): bool
     {
-        return ! is_null($this->token);
+        return !is_null($this->token);
     }
 
     /**
-     *
-     *
      * @param array $params
+     *
      * @return string
      */
     public function encode(array $params = []): string
@@ -184,16 +183,16 @@ class MsfRpcClient extends Container
     }
 
     /**
-     *
-     *
      * @param string $str
+     *
      * @return mixed|array
      */
     public function decode($str = '')
     {
-        if (! is_array($data = msgpack_unpack($str))) {
+        if (!is_array($data = msgpack_unpack($str))) {
             return [];
         }
+
         return $data;
     }
 
@@ -201,8 +200,10 @@ class MsfRpcClient extends Container
      * Dynamically retrieve managers on the client.
      *
      * @param string $name
-     * @return mixed
+     *
      * @throws InvalidArgumentException
+     *
+     * @return mixed
      */
     public function __get($name)
     {
@@ -214,10 +215,10 @@ class MsfRpcClient extends Container
     }
 
     /**
-     * Adds a new custom handler to instance
+     * Adds a new custom handler to instance.
      *
      * @param Handler $handler
-     * @param bool $override
+     * @param bool    $override
      *
      * @return MsfRpcClient
      */

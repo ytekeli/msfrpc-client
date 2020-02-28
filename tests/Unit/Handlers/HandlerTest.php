@@ -10,7 +10,6 @@
 
 namespace Ytekeli\MsfRpcClient\Tests\Unit\Handlers;
 
-use GuzzleHttp\Psr7\Response;
 use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 use Ytekeli\MsfRpcClient\Handlers\Handler;
@@ -22,24 +21,24 @@ class HandlerTest extends ClientTestCase
 {
     public function testItReturnsClassName()
     {
-        $this->assertEquals((new Handler)->getName(), 'handler');
+        $this->assertEquals((new Handler())->getName(), 'handler');
     }
 
     public function testItReturnsClassNameFromReflection()
     {
-        $this->assertEquals((new CoreHandler)->getName(), 'core');
+        $this->assertEquals((new CoreHandler())->getName(), 'core');
     }
 
     public function testItSetsRpcClientToHandler()
     {
-        $handler = (new Handler)->setRpc($this->client());
+        $handler = (new Handler())->setRpc($this->client());
 
         $this->assertInstanceOf(MsfRpcClient::class, $handler->rpc);
     }
 
     public function testCallMethodWithoutCallback()
     {
-        $handler = (new Handler)->setRpc($this->clientMock());
+        $handler = (new Handler())->setRpc($this->clientMock());
 
         $items = $handler->call('test.request', null, []);
 
@@ -49,25 +48,25 @@ class HandlerTest extends ClientTestCase
 
     public function testCallMethodWithCallable()
     {
-        $handler = (new Handler)->setRpc($this->clientMock([
-            1, 2, 3
+        $handler = (new Handler())->setRpc($this->clientMock([
+            1, 2, 3,
         ]));
 
         $result = $handler->call('test.request', function ($items, $handler) {
             return [
-                $handler, $items->toArray()
+                $handler, $items->toArray(),
             ];
         });
 
         $this->assertEquals([
-            $handler, [1, 2, 3]
+            $handler, [1, 2, 3],
         ], $result);
     }
 
     public function testCallMethodWithClass()
     {
-        $handler = (new Handler)->setRpc($this->clientMock([
-            $this->fakeSuccess()
+        $handler = (new Handler())->setRpc($this->clientMock([
+            $this->fakeSuccess(),
         ]));
 
         $this->assertTrue($handler->call('test.request', BaseResponse::class)->success());
@@ -80,7 +79,7 @@ class HandlerTest extends ClientTestCase
         $this->clientWithHttpMock([
             $this->createHttpResponsePack([
                 'result' => 'false',
-            ])
+            ]),
         ], ['authenticate' => false])->core->version();
     }
 }

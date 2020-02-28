@@ -10,20 +10,15 @@
 
 namespace Ytekeli\MsfRpcClient\Handlers;
 
-use GuzzleHttp\Exception\ConnectException;
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Contracts\Response;
-use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
-use Ytekeli\MsfRpcClient\Exceptions\MsfRpcException;
 use Ytekeli\MsfRpcClient\MsfRpcMethod;
-use Ytekeli\MsfRpcClient\Resource\Threads;
-use Ytekeli\MsfRpcClient\Resource\Core\Version;
 use Ytekeli\MsfRpcClient\Resource\Core\Stats;
+use Ytekeli\MsfRpcClient\Resource\Core\Version;
+use Ytekeli\MsfRpcClient\Resource\Threads;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
 
 /**
- * Class CoreHandler
- * @package Ytekeli\MsfRpcClient\Handlers
+ * Class CoreHandler.
  */
 class CoreHandler extends Handler
 {
@@ -53,6 +48,7 @@ class CoreHandler extends Handler
      * Returns a global datastore option.
      *
      * @param string $option The name of the global datastore.
+     *
      * @return string|null
      */
     public function getg(string $option = '')
@@ -66,7 +62,8 @@ class CoreHandler extends Handler
      * Sets a global datastore option.
      *
      * @param string $option The hash key of the global datastore option.
-     * @param string $value The value of the global datastore option.
+     * @param string $value  The value of the global datastore option.
+     *
      * @return bool
      */
     public function setg(string $option = '', string $value = ''): bool
@@ -80,6 +77,7 @@ class CoreHandler extends Handler
      * Unsets a global datastore option.
      *
      * @param string $option The global datastore option.
+     *
      * @return bool
      */
     public function unsetg(string $option = ''): bool
@@ -115,6 +113,7 @@ class CoreHandler extends Handler
      * Adds a new local file system path (local to the server) as a module path.
      *
      * @param string $path The new path to load.
+     *
      * @return bool
      */
     public function addModulePath(string $path = ''): bool
@@ -148,6 +147,7 @@ class CoreHandler extends Handler
      * Kills a framework thread.
      *
      * @param int|null $threadId The thread ID to kill.
+     *
      * @return bool
      */
     public function kill(int $threadId = null)

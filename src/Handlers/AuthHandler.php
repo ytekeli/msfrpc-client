@@ -23,6 +23,7 @@ class AuthHandler extends Handler
      *
      * @param string $username
      * @param string $password
+     *
      * @return bool
      */
     public function login(string $username = '', string $password = ''): bool
@@ -31,6 +32,7 @@ class AuthHandler extends Handler
 
         if ($result->get('result') === 'success') {
             $this->rpc->token = $result->get('token');
+
             return true;
         }
 
@@ -41,6 +43,7 @@ class AuthHandler extends Handler
      * Adds a new token to the database.
      *
      * @param string $token A unique token.
+     *
      * @return bool
      */
     public function add(string $token = ''): bool

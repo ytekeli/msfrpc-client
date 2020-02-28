@@ -15,16 +15,17 @@ use Ytekeli\MsfRpcClient\MsfRpcClient;
 interface Handler
 {
     /**
-     * Gets handler name
+     * Gets handler name.
      *
      * @return string
      */
     public function getName(): string;
 
     /**
-     * Sets Msf RPC client
+     * Sets Msf RPC client.
      *
      * @param MsfRpcClient $client
+     *
      * @return mixed
      */
     public function setRpc(MsfRpcClient $client);
