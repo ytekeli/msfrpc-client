@@ -11,6 +11,8 @@ build:
     environment:
         php:
             version: '7.2'
+            pecl_extensions:
+                - msgpack       
     tests:
         override:
             -
