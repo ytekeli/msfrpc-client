@@ -9,8 +9,9 @@ filter:
 
 build:
   environment:
-    pecl_extensions:
-      - msgpack
+    php:
+      pecl_extensions:
+        - msgpack
   tests:
     override:
       -
