@@ -216,9 +216,10 @@ class MsfRpcClient extends Container
     /**
      * Adds a new custom handler to instance
      *
-     * @param   Handler $handler
-     * @param   bool    $override
-     * @return  $this
+     * @param Handler $handler
+     * @param bool $override
+     *
+     * @return MsfRpcClient
      */
     public function addHandler(Handler $handler, bool $override = false): self
     {

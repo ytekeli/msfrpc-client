@@ -28,7 +28,6 @@ class MsfRpcAuthException extends Exception
      * Create a new authentication exception.
      *
      * @param  string  $message
-     * @return void
      */
     public function __construct($message = 'Unauthenticated.')
     {
