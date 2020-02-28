@@ -14,6 +14,10 @@ env:
 matrix:
   fast_finish: true
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 before_script:
   - travis_retry pecl install msgpack
   - travis_retry composer self-update
