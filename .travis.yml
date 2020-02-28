@@ -21,7 +21,7 @@ cache:
 before_script:
   - travis_retry pecl install msgpack
   - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source --no-suggest
 
 script:
   - composer test
