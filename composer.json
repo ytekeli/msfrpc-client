@@ -9,9 +9,17 @@
             "email": "yahyatekeli@gmail.com"
         }
     ],
+    "require": {
+        "pimple/pimple": "~3.0",
+        "guzzlehttp/guzzle": "^6.5",
+        "tightenco/collect": "^6.16"
+    },
     "require-dev": {
         "phpstan/phpstan": "^0.12.3",
-        "phpunit/phpunit": "^8.5.1 || ^9.0"
+        "phpunit/phpunit": "^8.5.1 || ^9.0",
+        "squizlabs/php_codesniffer": "^3",
+        "psy/psysh": "^0.9",
+        "phpmd/phpmd": "@stable"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -28,9 +36,11 @@
     "scripts": {
         "test:types": "phpstan analyse --ansi",
         "test:unit": "phpunit --colors=always",
+        "test:check-style": "phpcs -p --standard=PSR2 src/",
         "test": [
             "@test:unit",
-            "@test:types"
+            "@test:types",
+            "@test:check-style"
         ]
     }
 }
