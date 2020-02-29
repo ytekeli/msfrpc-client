@@ -17,6 +17,6 @@ class ResourceTest extends ClientTestCase
 {
     public function testSuccessMethodReturnsFalseForDefault()
     {
-        $this->assertFalse((new Resource)->success());
+        $this->assertFalse((new Resource())->success());
     }
 }

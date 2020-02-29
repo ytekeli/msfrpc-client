@@ -14,24 +14,18 @@ use Exception;
 
 class MsfRpcAuthException extends Exception
 {
-    /**
-     *
-     */
     const UNAUTHENTICATED = 'Unauthenticated.';
 
-    /**
-     *
-     */
     const AUTH_FAILED = 'Authentication failed.';
 
     /**
      * Create a new authentication exception.
      *
-     * @param  string  $message
+     * @param string $message
      */
     public function __construct($message = 'Unauthenticated.')
     {
-        $message = 'MsfRpc: ' . $message;
+        $message = 'MsfRpc: '.$message;
 
         parent::__construct($message);
     }

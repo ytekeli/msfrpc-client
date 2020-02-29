@@ -11,7 +11,6 @@
 namespace Ytekeli\MsfRpcClient\Tests\Unit;
 
 use Exception;
-use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
@@ -20,10 +19,6 @@ use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
 class ClientTest extends ClientTestCase
 {
-
-    /**
-     *
-     */
     public function testNoHandlers()
     {
         $client = $this->client(['no_handlers' => true]);
@@ -38,7 +33,7 @@ class ClientTest extends ClientTestCase
      */
     public function testAddHandlerSuccess(): void
     {
-        $client = $this->client()->addHandler(new CoreHandler, true);
+        $client = $this->client()->addHandler(new CoreHandler(), true);
 
         $this->assertInstanceOf(get_class($client->core), new CoreHandler());
     }
@@ -51,12 +46,9 @@ class ClientTest extends ClientTestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Handler core is already exist.');
 
-        $this->client()->addHandler(new CoreHandler);
+        $this->client()->addHandler(new CoreHandler());
     }
 
-    /**
-     *
-     */
     public function testDynamicallyRetrieverFailsWhenHandlerNotDefined()
     {
         $this->expectException(InvalidArgumentException::class);
@@ -65,9 +57,6 @@ class ClientTest extends ClientTestCase
         $this->client()->foo;
     }
 
-    /**
-     *
-     */
     public function testAuthFailed()
     {
         $this->assertFalse($this->clientMock()->auth->login('username', 'password'));
@@ -87,14 +76,11 @@ class ClientTest extends ClientTestCase
             ->call(MsfRpcMethod::CORE_VERSION);
     }
 
-    /**
-     *
-     */
     public function testDecode()
     {
         $this->assertEquals($this->client()->decode(msgpack_pack([1, 2, 3])), [1, 2, 3]);
 
-        $this->assertEquals($this->client()->decode(msgpack_pack(new \stdClass)), []);
+        $this->assertEquals($this->client()->decode(msgpack_pack(new \stdClass())), []);
     }
 
     public function testCallWithServerException()
@@ -103,7 +89,7 @@ class ClientTest extends ClientTestCase
         $this->expectExceptionCode(0);
 
         $this->clientMock([
-            'error' => true,
+            'error'         => true,
             'error_message' => 'MsfRpc server error.',
         ])->core->version();
     }

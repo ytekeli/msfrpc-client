@@ -14,9 +14,8 @@ use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Contracts\Response;
 
 /**
- * Core version instance
+ * Core version instance.
  *
- * @package Ytekeli\MsfRpcClient\Resource\Core
  * @property string|null $version Metasploit version.
  * @property string|null $ruby    Ruby version.
  * @property string|null $api     Api version.
@@ -30,9 +29,9 @@ class Version implements Response
      */
     public function __construct(Collection $items)
     {
-        $this->version  = $items->get('version');
-        $this->ruby     = $items->get('ruby');
-        $this->api      = $items->get('api');
+        $this->version = $items->get('version');
+        $this->ruby = $items->get('ruby');
+        $this->api = $items->get('api');
     }
 
     /**
@@ -40,6 +39,6 @@ class Version implements Response
      */
     public function success(): bool
     {
-        return ! in_array(null, [$this->version, $this->ruby, $this->api]);
+        return !in_array(null, [$this->version, $this->ruby, $this->api]);
     }
 }

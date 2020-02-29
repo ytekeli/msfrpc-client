@@ -10,7 +10,6 @@
 
 namespace Ytekeli\MsfRpcClient\Tests\Unit\Handlers;
 
-use Ytekeli\MsfRpcClient\Exceptions\MsfRpcException;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
 class AuthHandlerTest extends ClientTestCase
@@ -37,7 +36,7 @@ class AuthHandlerTest extends ClientTestCase
     public function testAddTokenSuccess()
     {
         $client = $this->clientMock([
-            $this->fakeSuccess()
+            $this->fakeSuccess(),
         ]);
 
         $this->assertTrue($client->auth->add($this->generateFakeToken()));

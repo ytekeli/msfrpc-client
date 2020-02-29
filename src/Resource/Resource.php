@@ -15,8 +15,8 @@ use Ytekeli\MsfRpcClient\Contracts\Handler;
 use Ytekeli\MsfRpcClient\Contracts\Responsable;
 
 /**
- * Resource Instance
- * @package  Ytekeli\MsfRpcClient\Resource
+ * Resource Instance.
+ *
  * @property Handler $handler Handler instance.
  */
 class Resource implements Responsable
@@ -29,19 +29,19 @@ class Resource implements Responsable
      */
     public function __construct(Collection $collection = null, Handler $handler = null)
     {
-        if (! is_null($collection)) {
+        if (!is_null($collection)) {
             foreach (get_object_vars($this) as $property => $defaultValue) {
                 $this->{$property} = $collection->get($property, $defaultValue);
             }
         }
 
-        if (! is_null($handler) && property_exists($this, 'handler')) {
+        if (!is_null($handler) && property_exists($this, 'handler')) {
             $this->handler = $handler;
         }
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function success(): bool
     {
