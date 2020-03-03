@@ -22,13 +22,13 @@ use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 use Ytekeli\MsfRpcClient\Handlers\Exception as ExceptionHandler;
 
 /**
- * Class MsfRpcClient.
+ * Class Client.
  *
  * @property AuthHandler    $auth
  * @property CoreHandler    $core
  * @property ExceptionHandler $exception
  */
-class MsfRpcClient extends Container
+class Client extends Container
 {
     /**
      * @var mixed
@@ -62,7 +62,7 @@ class MsfRpcClient extends Container
     protected $authenticate = true;
 
     /**
-     * MsfRpcClient constructor.
+     * Client constructor.
      *
      * @param array $options Required configuration options
      *
@@ -219,7 +219,7 @@ class MsfRpcClient extends Container
      * @param Handler $handler
      * @param bool    $override
      *
-     * @return MsfRpcClient
+     * @return Client
      */
     public function addHandler(Handler $handler, bool $override = false): self
     {

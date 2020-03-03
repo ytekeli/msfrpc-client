@@ -15,14 +15,14 @@ use GuzzleHttp\Exception\ConnectException;
 use ReflectionClass;
 use ReflectionException;
 use Ytekeli\MsfRpcClient\Contracts\Handler as HandlerContract;
-use Ytekeli\MsfRpcClient\MsfRpcClient;
+use Ytekeli\MsfRpcClient\Client;
 use Ytekeli\MsfRpcClient\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Resource\Collection;
 
 class Handler implements HandlerContract
 {
     /**
-     * @var MsfRpcClient Msf RPC Client
+     * @var Client Msf RPC Client
      */
     public $rpc;
 
@@ -45,11 +45,11 @@ class Handler implements HandlerContract
     /**
      * {@inheritdoc}
      *
-     * @param MsfRpcClient $client MsfRpc client instance
+     * @param Client $client MsfRpc client instance
      *
      * @return $this|mixed
      */
-    public function setRpc(MsfRpcClient $client)
+    public function setRpc(Client $client)
     {
         $this->rpc = $client;
 

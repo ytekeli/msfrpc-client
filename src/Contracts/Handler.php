@@ -10,7 +10,7 @@
 
 namespace Ytekeli\MsfRpcClient\Contracts;
 
-use Ytekeli\MsfRpcClient\MsfRpcClient;
+use Ytekeli\MsfRpcClient\Client;
 
 interface Handler
 {
@@ -24,9 +24,9 @@ interface Handler
     /**
      * Sets Msf RPC client.
      *
-     * @param MsfRpcClient $client
+     * @param Client $client
      *
      * @return mixed
      */
-    public function setRpc(MsfRpcClient $client);
+    public function setRpc(Client $client);
 }

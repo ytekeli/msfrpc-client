@@ -14,7 +14,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use Ytekeli\MsfRpcClient\MsfRpcClient;
+use Ytekeli\MsfRpcClient\Client;
 
 class ClientTestCase extends TestCase
 {
@@ -24,7 +24,7 @@ class ClientTestCase extends TestCase
     public static $config;
 
     /**
-     * @var MsfRpcClient Msf RPC Client Object
+     * @var Client Msf RPC Client Object
      */
     protected $client;
 
@@ -39,14 +39,14 @@ class ClientTestCase extends TestCase
             'authenticate'  => false,
         ];
 
-        $this->client = new MsfRpcClient(self::$config);
+        $this->client = new Client(self::$config);
     }
 
     public function client(array $config = [])
     {
         $config = array_merge(self::$config, $config);
 
-        return new MsfRpcClient($config);
+        return new Client($config);
     }
 
     public function clientWithHttpMock(array $responses = [], array $config = [])

@@ -13,7 +13,7 @@ namespace Ytekeli\MsfRpcClient\Tests\Unit\Handlers;
 use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 use Ytekeli\MsfRpcClient\Handlers\Handler;
-use Ytekeli\MsfRpcClient\MsfRpcClient;
+use Ytekeli\MsfRpcClient\Client;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
@@ -33,7 +33,7 @@ class HandlerTest extends ClientTestCase
     {
         $handler = (new Handler())->setRpc($this->client());
 
-        $this->assertInstanceOf(MsfRpcClient::class, $handler->rpc);
+        $this->assertInstanceOf(Client::class, $handler->rpc);
     }
 
     public function testCallMethodWithoutCallback()
