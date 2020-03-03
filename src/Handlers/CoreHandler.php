@@ -14,7 +14,7 @@ use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Resource\Core\Stats;
 use Ytekeli\MsfRpcClient\Resource\Core\Version;
-use Ytekeli\MsfRpcClient\Resource\Threads;
+use Ytekeli\MsfRpcClient\Resource\Core\ThreadCollection;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
 
 /**
@@ -140,7 +140,7 @@ class CoreHandler extends Handler
      */
     public function threads()
     {
-        return $this->call(MsfRpcMethod::CORE_THREAD_LIST, Threads::class);
+        return $this->call(MsfRpcMethod::CORE_THREAD_LIST, ThreadCollection::class);
     }
 
     /**

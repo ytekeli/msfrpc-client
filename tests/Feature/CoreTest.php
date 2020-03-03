@@ -10,7 +10,7 @@
 
 namespace Ytekeli\MsfRpcClient\Tests\Feature;
 
-use Ytekeli\MsfRpcClient\Resource\Threads;
+use Ytekeli\MsfRpcClient\Resource\Core\ThreadCollection;
 
 class CoreTest extends ClientFeatureTestCase
 {
@@ -23,7 +23,7 @@ class CoreTest extends ClientFeatureTestCase
     {
         $threads = $this->client()->core->threads();
 
-        $this->assertInstanceOf(Threads::class, $threads);
+        $this->assertInstanceOf(ThreadCollection::class, $threads);
         $this->assertTrue($threads->count() > 0);
     }
 }

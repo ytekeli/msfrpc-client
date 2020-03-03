@@ -15,7 +15,7 @@ use GuzzleHttp\Psr7\Request;
 use Ytekeli\MsfRpcClient\Resource\Core\Stats;
 use Ytekeli\MsfRpcClient\Resource\Core\Version;
 use Ytekeli\MsfRpcClient\Resource\Thread;
-use Ytekeli\MsfRpcClient\Resource\Threads;
+use Ytekeli\MsfRpcClient\Resource\Core\ThreadCollection;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
 class CoreHandlerTest extends ClientTestCase
@@ -128,7 +128,7 @@ class CoreHandlerTest extends ClientTestCase
         $threads = $this->clientMock([$this->fakeThreads()])->core->threads();
 
         $this->assertEquals($threads->count(), 3);
-        $this->assertInstanceOf(Threads::class, $threads);
+        $this->assertInstanceOf(ThreadCollection::class, $threads);
 
         foreach ($threads as $thread) {
             $this->assertInstanceOf(Thread::class, $thread);
@@ -139,7 +139,7 @@ class CoreHandlerTest extends ClientTestCase
     {
         $threads = $this->clientMock([0 => []])->core->threads();
 
-        $this->assertInstanceOf(Threads::class, $threads);
+        $this->assertInstanceOf(ThreadCollection::class, $threads);
         $this->assertEquals($threads->all(), []);
     }
 

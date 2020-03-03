@@ -8,14 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Ytekeli\MsfRpcClient\Resource;
+namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
+use Ytekeli\MsfRpcClient\Resource\Collection;
+use Ytekeli\MsfRpcClient\Resource\Thread;
 
 /**
  * Thread Collection Instance.
  */
-class Threads extends Collection
+class ThreadCollection extends Collection
 {
     /**
      * Create a new thread collection instance.
@@ -38,7 +40,7 @@ class Threads extends Collection
     /**
      * Get critical threads.
      *
-     * @return Threads
+     * @return ThreadCollection
      */
     public function critical()
     {
