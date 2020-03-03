@@ -12,7 +12,6 @@ namespace Ytekeli\MsfRpcClient;
 
 use Exception;
 use GuzzleHttp\Client as HttpClient;
-use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
 use Pimple\Container;
 use Psr\Http\Message\ResponseInterface;

@@ -92,6 +92,7 @@ class Handler implements HandlerContract
             if ($this->isConnectionError() && $this->isNoResponseMethod($method)) {
                 return true;
             }
+
             throw $this->rpc->exception->get(); // TODO improve error handling
         }
 
