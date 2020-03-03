@@ -57,9 +57,9 @@ class Handler implements HandlerContract
     }
 
     /**
-     * @param string $method
+     * @param string               $method
      * @param callable|string|null $callback
-     * @param array $params
+     * @param array                $params
      *
      * @return mixed
      */
@@ -117,7 +117,7 @@ class Handler implements HandlerContract
     }
 
     /**
-     * @param Collection $items
+     * @param Collection           $items
      * @param callable|string|null $callback
      *
      * @return mixed
