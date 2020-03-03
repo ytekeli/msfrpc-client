@@ -32,30 +32,34 @@ use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 class Client extends Container
 {
     /**
-     * @var mixed
+     * @var string
      */
     protected $host;
+
     /**
-     * @var mixed
+     * @var int
      */
     protected $port;
+
     /**
-     * @var mixed
+     * @var string
      */
     protected $uri;
+
     /**
-     * @var mixed
+     * @var bool
      */
     protected $ssl;
+
     /**
-     * @var mixed|null
+     * @var string|null
      */
     public $token = null;
 
     /**
-     * @var mixed
+     * @var array
      */
-    protected $guzzleOptions;
+    protected $guzzleOptions = [];
 
     /**
      * @var bool
@@ -73,19 +77,7 @@ class Client extends Container
     {
         parent::__construct();
 
-        $options = array_merge([
-            'host'          => '127.0.0.1',
-            'port'          => 55553,
-            'uri'           => '/api/',
-            'username'      => 'msf',
-            'password'      => '',
-            'ssl'           => true,
-            'token'         => null,
-            'guzzle_options'=> [],
-            'login'         => true,
-            'authenticate'  => true,
-            'no_handlers'   => false,
-        ], $options);
+        $options = $this->mergeOptions($options);
 
         $this->host = $options['host'];
         $this->port = $options['port'];
@@ -98,7 +90,7 @@ class Client extends Container
         $this->addHandler(new AuthHandler());
         $this->addHandler(new ExceptionHandler());
 
-        if ($this->authenticate !== false || !is_null($this->token)) {
+        if ($this->authenticate !== false) {
             if (!is_null($this->token)) {
                 // TODO login with token method will be added.
             } else {
@@ -106,9 +98,30 @@ class Client extends Container
             }
         }
 
-        if ($options['no_handlers'] !== true) {
-            $this->addHandler(new CoreHandler());
-        }
+        // Add predefined handlers
+        $this->addHandlers($options['no_handlers']);
+    }
+
+    /**
+     * @param array $options
+     *
+     * @return array
+     */
+    private function mergeOptions(array $options = [])
+    {
+        return array_merge([
+            'host'          => '127.0.0.1',
+            'port'          => 55553,
+            'uri'           => '/api/',
+            'username'      => 'msf',
+            'password'      => '',
+            'ssl'           => true,
+            'token'         => null,
+            'guzzle_options'=> [],
+            'login'         => true,
+            'authenticate'  => true,
+            'no_handlers'   => false,
+        ], $options);
     }
 
     /**
@@ -211,6 +224,20 @@ class Client extends Container
             return $this[$name];
         } else {
             throw new InvalidArgumentException("Property \"$name\" does not exist.");
+        }
+    }
+
+    /**
+     * Adds predefined handlers to client instance.
+     *
+     * @param bool $noHandlers
+     *
+     * @return void
+     */
+    public function addHandlers(bool $noHandlers = false)
+    {
+        if ($noHandlers !== true) {
+            $this->addHandler(new CoreHandler());
         }
     }
 
