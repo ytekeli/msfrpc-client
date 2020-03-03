@@ -12,7 +12,7 @@ namespace Ytekeli\MsfRpcClient\Handlers;
 
 use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\MsfRpcMethod;
-use Ytekeli\MsfRpcClient\Resource\Auth\Tokens;
+use Ytekeli\MsfRpcClient\Resource\Auth\TokenCollection;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
 
 class AuthHandler extends Handler
@@ -57,10 +57,10 @@ class AuthHandler extends Handler
      * Returns a list of authentication tokens, including the ones that are
      * temporary, permanent, or stored in the backend.
      *
-     * @return Collection|Tokens
+     * @return Collection|TokenCollection
      */
     public function tokens()
     {
-        return $this->call(MsfRpcMethod::AUTH_TOKEN_LIST, Tokens::class);
+        return $this->call(MsfRpcMethod::AUTH_TOKEN_LIST, TokenCollection::class);
     }
 }
