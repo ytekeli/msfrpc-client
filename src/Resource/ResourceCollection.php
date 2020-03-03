@@ -12,6 +12,6 @@ namespace Ytekeli\MsfRpcClient\Resource;
 
 use Tightenco\Collect\Support\Collection as BaseCollection;
 
-class Collection extends BaseCollection
+class ResourceCollection extends BaseCollection
 {
 }

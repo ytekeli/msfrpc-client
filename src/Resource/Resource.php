@@ -24,8 +24,8 @@ class Resource implements Responsable
     /**
      * Create a new resource instance.
      *
-     * @param Collection   $collection The resource collection.
-     * @param Handler|null $handler    Handler instance.
+     * @param Collection $collection The resource collection.
+     * @param Handler|null $handler Handler instance.
      */
     public function __construct(Collection $collection = null, Handler $handler = null)
     {

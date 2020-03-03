@@ -10,6 +10,8 @@
 
 namespace Ytekeli\MsfRpcClient\Handler;
 
+use GuzzleHttp\Exception\ConnectException;
+
 /**
  * Exception Handler Instance.
  */

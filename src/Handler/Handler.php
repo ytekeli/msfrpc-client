@@ -13,9 +13,10 @@ namespace Ytekeli\MsfRpcClient\Handler;
 use GuzzleHttp\Exception\ConnectException;
 use ReflectionClass;
 use ReflectionException;
+use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Client;
 use Ytekeli\MsfRpcClient\Contract\Handler as HandlerContract;
-use Ytekeli\MsfRpcClient\Resource\Collection;
+use Ytekeli\MsfRpcClient\Resource\ResourceCollection;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 class Handler implements HandlerContract
@@ -73,41 +74,24 @@ class Handler implements HandlerContract
             $this->rpc->exception->setException($exception);
         }
 
-        if ($this->checkConnectionError($method) === true) {
+        if ($this->hasConnectionError($method) === true) {
             $items = ['result' => 'success'];
         }
 
-        $items = collect($items);
-
-        if (is_callable($callback)) {
-            return $callback($items, $this);
-        }
-
-        if (is_string($callback) && class_exists($callback)) {
-            if (get_parent_class($callback) == Collection::class) {
-                $items = $items->toArray();
-            }
-
-            return new $callback($items, $this);
-        }
-
-        return $items;
+        return $this->runCallback(collect($items), $callback);
     }
 
     /**
      * @param string $method
      *
-     * @throws \Exception
-     *
      * @return bool
      */
-    private function checkConnectionError(string $method = '')
+    public function hasConnectionError(string $method = '')
     {
         if ($this->rpc->exception->isError()) {
             if ($this->isConnectionError() && $this->isNoResponseMethod($method)) {
                 return true;
             }
-
             throw $this->rpc->exception->get(); // TODO improve error handling
         }
 
@@ -124,10 +108,34 @@ class Handler implements HandlerContract
 
     /**
      * @param string $method
+     *
      * @return bool
      */
     private function isNoResponseMethod(string $method = '')
     {
         return in_array($method, [MsfRpcMethod::CORE_STOP]);
+    }
+
+    /**
+     * @param Collection $items
+     * @param callable|string|null $callback
+     *
+     * @return mixed
+     */
+    private function runCallback($items, $callback)
+    {
+        if (is_callable($callback)) {
+            return $callback($items, $this);
+        }
+
+        if (is_string($callback) && class_exists($callback)) {
+            if (get_parent_class($callback) == ResourceCollection::class) {
+                $items = $items->toArray();
+            }
+
+            return new $callback($items, $this);
+        }
+
+        return $items;
     }
 }

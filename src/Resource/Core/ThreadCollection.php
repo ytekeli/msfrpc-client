@@ -11,12 +11,12 @@
 namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Ytekeli\MsfRpcClient\Handler\CoreHandler;
-use Ytekeli\MsfRpcClient\Resource\Collection;
+use Ytekeli\MsfRpcClient\Resource\ResourceCollection;
 
 /**
- * Thread Collection Instance.
+ * Thread ResourceCollection Instance.
  */
-class ThreadCollection extends Collection
+class ThreadCollection extends ResourceCollection
 {
     /**
      * Create a new thread collection instance.

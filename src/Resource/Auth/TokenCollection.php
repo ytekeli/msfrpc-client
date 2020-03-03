@@ -10,9 +10,9 @@
 
 namespace Ytekeli\MsfRpcClient\Resource\Auth;
 
-use Ytekeli\MsfRpcClient\Resource\Collection;
+use Ytekeli\MsfRpcClient\Resource\ResourceCollection;
 
-class TokenCollection extends Collection
+class TokenCollection extends ResourceCollection
 {
     /**
      * Create a new token collection instance.
