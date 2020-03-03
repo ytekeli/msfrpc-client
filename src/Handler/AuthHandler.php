@@ -11,9 +11,9 @@
 namespace Ytekeli\MsfRpcClient\Handler;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Resource\Auth\TokenCollection;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
+use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 class AuthHandler extends Handler
 {

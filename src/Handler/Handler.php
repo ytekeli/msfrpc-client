@@ -10,14 +10,13 @@
 
 namespace Ytekeli\MsfRpcClient\Handler;
 
-use Exception;
 use GuzzleHttp\Exception\ConnectException;
 use ReflectionClass;
 use ReflectionException;
-use Ytekeli\MsfRpcClient\Contract\Handler as HandlerContract;
 use Ytekeli\MsfRpcClient\Client;
-use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
+use Ytekeli\MsfRpcClient\Contract\Handler as HandlerContract;
 use Ytekeli\MsfRpcClient\Resource\Collection;
+use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 class Handler implements HandlerContract
 {
@@ -47,7 +46,7 @@ class Handler implements HandlerContract
      *
      * @param Client $client MsfRpc client instance
      *
-     * @return $this|mixed
+     * @return Handler
      */
     public function setRpc(Client $client)
     {
@@ -83,7 +82,7 @@ class Handler implements HandlerContract
                 $method == MsfRpcMethod::CORE_STOP) {
                 $items = ['result' => 'success'];
             } else {
-                throw new Exception($this->rpc->exception->get()); // TODO improve error handling
+                throw new \Exception($this->rpc->exception->get()); // TODO improve error handling
             }
         }
 
