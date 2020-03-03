@@ -47,7 +47,7 @@ class Handler implements HandlerContract
      *
      * @param Client $client MsfRpc client instance
      *
-     * @return $this|mixed
+     * @return Handler
      */
     public function setRpc(Client $client)
     {
