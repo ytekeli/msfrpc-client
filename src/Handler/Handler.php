@@ -56,9 +56,9 @@ class Handler implements HandlerContract
     }
 
     /**
-     * @param string               $method
+     * @param string $method
      * @param callable|string|null $callback
-     * @param array                $params
+     * @param array $params
      *
      * @return mixed
      */
@@ -68,22 +68,13 @@ class Handler implements HandlerContract
 
         try {
             $items = $this->rpc->call($method, $params);
-        } catch (ConnectException $connectException) {
-            // set connection error
-            $this->rpc->exception->setException($connectException);
         } catch (\Exception $exception) {
-            // set other stuff
+            // set exception
             $this->rpc->exception->setException($exception);
         }
 
-        if ($this->rpc->exception->isError()) {
-            // if error is connection and method core.stop return success message
-            if ($this->rpc->exception->instanceOf(ConnectException::class) &&
-                $method == MsfRpcMethod::CORE_STOP) {
-                $items = ['result' => 'success'];
-            } else {
-                throw new \Exception($this->rpc->exception->get()); // TODO improve error handling
-            }
+        if ($this->checkConnectionError($method) === true) {
+            $items = ['result' => 'success'];
         }
 
         $items = collect($items);
@@ -101,5 +92,40 @@ class Handler implements HandlerContract
         }
 
         return $items;
+    }
+
+    /**
+     * @param string $method
+     * @return bool
+     * @throws \Exception
+     */
+    private function checkConnectionError(string $method = '')
+    {
+        if ($this->rpc->exception->isError()) {
+            if ($this->isConnectionError() && $this->isNoResponseMethod($method)) {
+                return true;
+            }
+
+            throw new \Exception($this->rpc->exception->get()); // TODO improve error handling
+        }
+
+        return false;
+    }
+
+    /**
+     * @return bool
+     */
+    private function isConnectionError()
+    {
+        return $this->rpc->exception->instanceOf(ConnectException::class);
+    }
+
+    /**
+     * @param string $method
+     * @return bool
+     */
+    private function isNoResponseMethod(string $method = '')
+    {
+        return in_array($method, [MsfRpcMethod::CORE_STOP]);
     }
 }
