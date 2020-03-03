@@ -96,8 +96,10 @@ class Handler implements HandlerContract
 
     /**
      * @param string $method
-     * @return bool
+     *
      * @throws \Exception
+     *
+     * @return bool
      */
     private function checkConnectionError(string $method = '')
     {
@@ -106,7 +108,7 @@ class Handler implements HandlerContract
                 return true;
             }
 
-            throw new \Exception($this->rpc->exception->get()); // TODO improve error handling
+            throw $this->rpc->exception->get(); // TODO improve error handling
         }
 
         return false;
