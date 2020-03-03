@@ -15,7 +15,6 @@ use GuzzleHttp\Client as HttpClient;
 use InvalidArgumentException;
 use Pimple\Container;
 use Ytekeli\MsfRpcClient\Contracts\Handler;
-use Ytekeli\MsfRpcClient\Contracts\Response;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcException;
 use Ytekeli\MsfRpcClient\Handlers\AuthHandler;
@@ -119,7 +118,7 @@ class MsfRpcClient extends Container
      * @throws MsfRpcException
      * @throws Exception
      *
-     * @return Response|array
+     * @return array
      */
     public function call($method = '', array $params = [])
     {

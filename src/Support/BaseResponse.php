@@ -11,14 +11,14 @@
 namespace Ytekeli\MsfRpcClient\Support;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Contracts\Response;
+use Ytekeli\MsfRpcClient\Contracts\Responsable;
 
 /**
  * Class BaseResponse.
  *
  * @property mixed $result MsfRpc success message
  */
-class BaseResponse implements Response
+class BaseResponse implements Responsable
 {
     /**
      * @var mixed

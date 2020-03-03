@@ -11,7 +11,7 @@
 namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Contracts\Response;
+use Ytekeli\MsfRpcClient\Contracts\Responsable;
 
 /**
  * Core version instance.
@@ -20,7 +20,7 @@ use Ytekeli\MsfRpcClient\Contracts\Response;
  * @property string|null $ruby    Ruby version.
  * @property string|null $api     Api version.
  */
-class Version implements Response
+class Version implements Responsable
 {
     /**
      * Create a new version instance.
