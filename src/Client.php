@@ -12,8 +12,10 @@ namespace Ytekeli\MsfRpcClient;
 
 use Exception;
 use GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Psr7\Response;
 use InvalidArgumentException;
 use Pimple\Container;
+use Psr\Http\Message\ResponseInterface;
 use Ytekeli\MsfRpcClient\Contract\Handler;
 use Ytekeli\MsfRpcClient\Exception\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Exception\MsfRpcException;
@@ -165,13 +167,25 @@ class Client extends Container
             $this->port.
             $this->uri, $guzzleOptions);
 
-        $unpack = $this->decode($result->getBody());
+        return $this->handleServerResponse($result);
+    }
 
-        if (isset($unpack['error']) && $unpack['error'] == true) {
-            throw new MsfRpcException($unpack['error_message'], $unpack['error_code'] ?? 0);
+    /**
+     * @param ResponseInterface $result
+     *
+     * @throws MsfRpcException
+     *
+     * @return array|mixed
+     */
+    private function handleServerResponse(ResponseInterface $result)
+    {
+        $response = $this->decode($result->getBody());
+
+        if (isset($response['error']) && $response['error'] == true) {
+            throw new MsfRpcException($response['error_message'], $response['error_code'] ?? 0);
         }
 
-        return $unpack;
+        return $response;
     }
 
     /**
