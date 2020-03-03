@@ -12,7 +12,7 @@ namespace Ytekeli\MsfRpcClient\Tests\Unit\Resource\Core;
 
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
-class ThreadsTest extends ClientTestCase
+class ThreadCollectionTest extends ClientTestCase
 {
     public function testItReturnsCriticalThreads()
     {
