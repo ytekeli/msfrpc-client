@@ -12,7 +12,7 @@ namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Contracts\Handler;
-use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
+use Ytekeli\MsfRpcClient\Handler\CoreHandler;
 use Ytekeli\MsfRpcClient\Resource\Resource;
 
 /**

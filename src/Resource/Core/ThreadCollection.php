@@ -10,7 +10,7 @@
 
 namespace Ytekeli\MsfRpcClient\Resource\Core;
 
-use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
+use Ytekeli\MsfRpcClient\Handler\CoreHandler;
 use Ytekeli\MsfRpcClient\Resource\Collection;
 
 /**

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ytekeli\MsfRpcClient\Handlers;
+namespace Ytekeli\MsfRpcClient\Handler;
 
 /**
  * Exception Handler Instance.

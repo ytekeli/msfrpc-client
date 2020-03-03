@@ -17,9 +17,9 @@ use Pimple\Container;
 use Ytekeli\MsfRpcClient\Contracts\Handler;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcException;
-use Ytekeli\MsfRpcClient\Handlers\AuthHandler;
-use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
-use Ytekeli\MsfRpcClient\Handlers\Exception as ExceptionHandler;
+use Ytekeli\MsfRpcClient\Handler\AuthHandler;
+use Ytekeli\MsfRpcClient\Handler\CoreHandler;
+use Ytekeli\MsfRpcClient\Handler\Exception as ExceptionHandler;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 /**
