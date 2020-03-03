@@ -20,7 +20,7 @@ class VersionTest extends ClientTestCase
         $version = new Version(collect([
             'version'   => 1,
             'ruby'      => 2,
-            'api'       => 3
+            'api'       => 3,
         ]));
 
         $this->assertTrue($version->success());

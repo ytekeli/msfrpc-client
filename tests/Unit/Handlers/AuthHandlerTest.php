@@ -47,7 +47,7 @@ class AuthHandlerTest extends ClientTestCase
         $client = $this->clientMock([
             [
                 'tokens' => [
-                    'token1', 'token2', 'token3'
+                    'token1', 'token2', 'token3',
                 ],
             ],
         ]);
