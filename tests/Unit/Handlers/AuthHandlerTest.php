@@ -48,12 +48,12 @@ class AuthHandlerTest extends ClientTestCase
             [
                 'tokens' => [
                     'token1', 'token2', 'token3'
-                ]
-            ]
+                ],
+            ],
         ]);
-        
+
         $this->assertEquals($client->auth->tokens()->toArray(), [
-            'token1', 'token2', 'token3'
+            'token1', 'token2', 'token3',
         ]);
     }
 }

@@ -13,9 +13,9 @@ namespace Ytekeli\MsfRpcClient\Tests\Unit\Handlers;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\Request;
 use Ytekeli\MsfRpcClient\Resource\Core\Stats;
-use Ytekeli\MsfRpcClient\Resource\Core\Version;
 use Ytekeli\MsfRpcClient\Resource\Core\Thread;
 use Ytekeli\MsfRpcClient\Resource\Core\ThreadCollection;
+use Ytekeli\MsfRpcClient\Resource\Core\Version;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
 class CoreHandlerTest extends ClientTestCase

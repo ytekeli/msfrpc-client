@@ -11,9 +11,9 @@
 namespace Ytekeli\MsfRpcClient\Tests\Unit\Handlers;
 
 use Tightenco\Collect\Support\Collection;
+use Ytekeli\MsfRpcClient\Client;
 use Ytekeli\MsfRpcClient\Handler\CoreHandler;
 use Ytekeli\MsfRpcClient\Handler\Handler;
-use Ytekeli\MsfRpcClient\Client;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 

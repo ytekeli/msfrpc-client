@@ -18,11 +18,11 @@ class VersionTest extends ClientTestCase
     public function testVersion()
     {
         $version = new Version(collect([
-            'version' => 1,
-            'ruby' => 2,
-            'api' => 3
+            'version'   => 1,
+            'ruby'      => 2,
+            'api'       => 3
         ]));
-        
+
         $this->assertTrue($version->success());
     }
 }

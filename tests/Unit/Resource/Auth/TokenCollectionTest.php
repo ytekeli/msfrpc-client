@@ -18,11 +18,11 @@ class TokenCollectionTest extends ClientTestCase
     public function testTokenCollectionWithData()
     {
         $collection = new TokenCollection([
-            'token1', 'token2', 'token3'
+            'token1', 'token2', 'token3',
         ]);
 
         $this->assertEquals($collection->toArray(), [
-            'token1', 'token2', 'token3'
+            'token1', 'token2', 'token3',
         ]);
     }
 
