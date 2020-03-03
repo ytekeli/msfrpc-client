@@ -8,11 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Ytekeli\MsfRpcClient\Resource;
+namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Contracts\Handler;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
+use Ytekeli\MsfRpcClient\Resource\Resource;
 
 /**
  * Thread Resource Instance.

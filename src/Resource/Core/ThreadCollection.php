@@ -12,7 +12,6 @@ namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 use Ytekeli\MsfRpcClient\Resource\Collection;
-use Ytekeli\MsfRpcClient\Resource\Thread;
 
 /**
  * Thread Collection Instance.
