@@ -16,7 +16,7 @@ use ReflectionClass;
 use ReflectionException;
 use Ytekeli\MsfRpcClient\Contracts\Handler as HandlerContract;
 use Ytekeli\MsfRpcClient\Client;
-use Ytekeli\MsfRpcClient\MsfRpcMethod;
+use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Resource\Collection;
 
 class Handler implements HandlerContract

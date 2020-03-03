@@ -14,7 +14,7 @@ use Exception;
 use InvalidArgumentException;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
-use Ytekeli\MsfRpcClient\MsfRpcMethod;
+use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
 
 class ClientTest extends ClientTestCase

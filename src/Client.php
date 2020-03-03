@@ -20,6 +20,7 @@ use Ytekeli\MsfRpcClient\Exceptions\MsfRpcException;
 use Ytekeli\MsfRpcClient\Handlers\AuthHandler;
 use Ytekeli\MsfRpcClient\Handlers\CoreHandler;
 use Ytekeli\MsfRpcClient\Handlers\Exception as ExceptionHandler;
+use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 /**
  * Class Client.

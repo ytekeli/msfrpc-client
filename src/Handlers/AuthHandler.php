@@ -11,7 +11,7 @@
 namespace Ytekeli\MsfRpcClient\Handlers;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\MsfRpcMethod;
+use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Resource\Auth\TokenCollection;
 use Ytekeli\MsfRpcClient\Support\BaseResponse;
 
