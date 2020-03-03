@@ -12,7 +12,7 @@ namespace Ytekeli\MsfRpcClient\Tests\Unit;
 
 use Exception;
 use InvalidArgumentException;
-use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
+use Ytekeli\MsfRpcClient\Exception\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Handler\CoreHandler;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Tests\ClientTestCase;
@@ -64,7 +64,7 @@ class ClientTest extends ClientTestCase
 
     /**
      * @throws MsfRpcAuthException
-     * @throws \Ytekeli\MsfRpcClient\Exceptions\MsfRpcException
+     * @throws \Ytekeli\MsfRpcClient\Exception\MsfRpcException
      */
     public function testUnauthenticated()
     {
