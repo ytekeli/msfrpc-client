@@ -61,6 +61,8 @@ class AuthHandler extends Handler
      */
     public function tokens()
     {
-        return $this->call(MsfRpcMethod::AUTH_TOKEN_LIST, TokenCollection::class);
+        return $this->call(MsfRpcMethod::AUTH_TOKEN_LIST, function ($items) {
+            return new TokenCollection($items['tokens'] ?? []);
+        });
     }
 }

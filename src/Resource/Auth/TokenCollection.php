@@ -21,9 +21,6 @@ class TokenCollection extends Collection
      */
     public function __construct(array $items = [])
     {
-        if (isset($items['tokens'])) {
-            $items = $items['tokens'];
-        }
         parent::__construct($items);
     }
 }

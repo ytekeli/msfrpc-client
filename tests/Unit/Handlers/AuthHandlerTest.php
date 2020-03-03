@@ -45,9 +45,13 @@ class AuthHandlerTest extends ClientTestCase
     public function testTokens()
     {
         $client = $this->clientMock([
-            'token1', 'token2', 'token3'
+            [
+                'tokens' => [
+                    'token1', 'token2', 'token3'
+                ]
+            ]
         ]);
-
+        
         $this->assertEquals($client->auth->tokens()->toArray(), [
             'token1', 'token2', 'token3'
         ]);
