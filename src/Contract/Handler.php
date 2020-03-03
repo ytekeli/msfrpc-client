@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Ytekeli\MsfRpcClient\Contracts;
+namespace Ytekeli\MsfRpcClient\Contract;
 
 use Ytekeli\MsfRpcClient\Client;
 

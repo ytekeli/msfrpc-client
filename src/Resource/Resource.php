@@ -11,8 +11,8 @@
 namespace Ytekeli\MsfRpcClient\Resource;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Contracts\Handler;
-use Ytekeli\MsfRpcClient\Contracts\Responsable;
+use Ytekeli\MsfRpcClient\Contract\Handler;
+use Ytekeli\MsfRpcClient\Contract\Responsable;
 
 /**
  * Resource Instance.

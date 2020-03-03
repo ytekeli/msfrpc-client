@@ -11,7 +11,7 @@
 namespace Ytekeli\MsfRpcClient\Support;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Contracts\Responsable;
+use Ytekeli\MsfRpcClient\Contract\Responsable;
 
 /**
  * Class BaseResponse.

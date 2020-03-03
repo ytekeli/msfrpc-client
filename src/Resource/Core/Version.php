@@ -11,7 +11,7 @@
 namespace Ytekeli\MsfRpcClient\Resource\Core;
 
 use Tightenco\Collect\Support\Collection;
-use Ytekeli\MsfRpcClient\Contracts\Responsable;
+use Ytekeli\MsfRpcClient\Contract\Responsable;
 
 /**
  * Core version instance.

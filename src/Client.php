@@ -14,7 +14,7 @@ use Exception;
 use GuzzleHttp\Client as HttpClient;
 use InvalidArgumentException;
 use Pimple\Container;
-use Ytekeli\MsfRpcClient\Contracts\Handler;
+use Ytekeli\MsfRpcClient\Contract\Handler;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcAuthException;
 use Ytekeli\MsfRpcClient\Exceptions\MsfRpcException;
 use Ytekeli\MsfRpcClient\Handler\AuthHandler;

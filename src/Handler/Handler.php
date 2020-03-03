@@ -14,7 +14,7 @@ use Exception;
 use GuzzleHttp\Exception\ConnectException;
 use ReflectionClass;
 use ReflectionException;
-use Ytekeli\MsfRpcClient\Contracts\Handler as HandlerContract;
+use Ytekeli\MsfRpcClient\Contract\Handler as HandlerContract;
 use Ytekeli\MsfRpcClient\Client;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 use Ytekeli\MsfRpcClient\Resource\Collection;
