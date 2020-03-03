@@ -140,10 +140,7 @@ class Client extends Container
             if (!$this->isAuthenticated()) {
                 throw new MsfRpcAuthException(MsfRpcAuthException::UNAUTHENTICATED);
             }
-        }
-
-        // prepend the token when method is not login
-        if ($method != MsfRpcMethod::AUTH_LOGIN) {
+            // prepend the token when method is not login
             array_unshift($params, $this->token);
         }
 
