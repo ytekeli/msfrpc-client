@@ -105,7 +105,7 @@ class ClientTestCase extends TestCase
     {
         return [
             'result' => 'success',
-            'token' => $this->generateFakeToken()
+            'token'  => $this->generateFakeToken(),
         ];
     }
 

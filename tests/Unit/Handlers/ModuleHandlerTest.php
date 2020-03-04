@@ -31,10 +31,10 @@ class ModuleHandlerTest extends ClientTestCase
     {
         $payloads = $this->clientMock([
             'payloads' => [
-                "cmd/unix/bind_perl",
-                "cmd/unix/bind_perl_ipv6",
-                "cmd/unix/reverse_perl",
-                "cmd/unix/reverse_perl_ssl",
+                'cmd/unix/bind_perl',
+                'cmd/unix/bind_perl_ipv6',
+                'cmd/unix/reverse_perl',
+                'cmd/unix/reverse_perl_ssl',
             ],
         ])->module->compatiblePayloads('exploit/aix/local/ibstat_path');
 

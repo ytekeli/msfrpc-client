@@ -10,20 +10,15 @@
 
 namespace Ytekeli\MsfRpcClient\Handler;
 
-use Pimple\Container;
-use Pimple\ServiceIterator;
-use Pimple\ServiceProviderInterface;
 use Tightenco\Collect\Support\Collection;
 use Ytekeli\MsfRpcClient\Resource\Module\Exploit;
 use Ytekeli\MsfRpcClient\Resource\Module\ModuleCollection;
-use Ytekeli\MsfRpcClient\Resource\ModuleResource;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 class ModuleHandler extends Handler
 {
-
     /**
-     * Returns a list of exploit names. The 'exploit/' prefix will not be included
+     * Returns a list of exploit names. The 'exploit/' prefix will not be included.
      *
      * @return Collection
      */

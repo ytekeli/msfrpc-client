@@ -10,7 +10,6 @@
 
 namespace Ytekeli\MsfRpcClient\Resource\Module;
 
-use Ytekeli\MsfRpcClient\Exception\MsfRpcException;
 use Ytekeli\MsfRpcClient\Handler\ModuleHandler;
 
 class ModuleCollection
@@ -33,8 +32,8 @@ class ModuleCollection
     /**
      * ModuleCollection constructor.
      *
-     * @param string $type
-     * @param string $name
+     * @param string        $type
+     * @param string        $name
      * @param ModuleHandler $handler
      */
     public function __construct(string $type, string $name, ModuleHandler $handler)
