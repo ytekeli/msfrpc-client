@@ -37,7 +37,7 @@ class ModuleResource
     /**
      * Create a msf module instance.
      *
-     * @param Collection $info
+     * @param Collection    $info
      * @param ModuleHandler $handler
      */
     public function __construct(Collection $info, ModuleHandler $handler)
@@ -49,7 +49,7 @@ class ModuleResource
         $this->handler = $handler;
 
         foreach ($info->all() as $key => $value) {
-            if (! in_array($key, ["advanced", "evasion", "options", "required", "runoptions"])) {
+            if (!in_array($key, ['advanced', 'evasion', 'options', 'required', 'runoptions'])) {
                 $this->{$key} = $value;
             }
         }
@@ -91,9 +91,10 @@ class ModuleResource
     }
 
     /**
-     * Gets information about the module option
+     * Gets information about the module option.
      *
      * @param string $optionName The option name
+     *
      * @return mixed
      */
     public function option(string $optionName = '')
@@ -160,7 +161,7 @@ class ModuleResource
     }
 
     /**
-     * Sets the current option value
+     * Sets the current option value.
      *
      * @param string $option The option name
      * @param mixed  $value  The option value
@@ -169,8 +170,8 @@ class ModuleResource
      */
     public function setOption(string $option = '', $value = '')
     {
-        if (! $this->options->has($option)) {
-            throw new \InvalidArgumentException('Invalid option: ' . $option);
+        if (!$this->options->has($option)) {
+            throw new \InvalidArgumentException('Invalid option: '.$option);
         }
 
         $optionType = $this->options->get($option)['type'];
@@ -196,6 +197,7 @@ class ModuleResource
      * Gets a specific run option.
      *
      * @param string $option
+     *
      * @return mixed|null
      */
     public function getOption(string $option = '')

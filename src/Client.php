@@ -22,7 +22,6 @@ use Ytekeli\MsfRpcClient\Handler\AuthHandler;
 use Ytekeli\MsfRpcClient\Handler\CoreHandler;
 use Ytekeli\MsfRpcClient\Handler\Exception as ExceptionHandler;
 use Ytekeli\MsfRpcClient\Handler\ModuleHandler;
-use Ytekeli\MsfRpcClient\Provider\ModuleServiceProvider;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 /**

@@ -21,13 +21,13 @@ class ModuleCollectionTest extends ClientTestCase
         $moduleCollection = new ModuleCollection('exploit', 'exploits/windows/blabla', $this->clientWithHttpMock([
             $this->createHttpResponsePack($this->fakeLogin()),
             $this->createHttpResponsePack([
-                'type' => 'exploit',
-                'name' => 'Blabla Exploit',
-                'fullname' => 'exploits/windows/blabla'
+                'type'     => 'exploit',
+                'name'     => 'Blabla Exploit',
+                'fullname' => 'exploits/windows/blabla',
             ]),
             $this->createHttpResponsePack([
-                'VERBOSE' => true
-            ])
+                'VERBOSE' => true,
+            ]),
         ])->module);
 
         $collection = $moduleCollection->get();
@@ -44,13 +44,13 @@ class ModuleCollectionTest extends ClientTestCase
             'UNKNOWN_MODULE_TYPE',
             'exploit/aix/local/ibstat_path',
             $this->clientMock([
-                'result' => 'fail'
+                'result' => 'fail',
             ])->module
         );
 
         $this->expectException(\BadMethodCallException::class);
         $this->expectExceptionMessage(
-            "Unknown module type UNKNOWN_MODULE_TYPE not: exploit, post, encoder, auxiliary, nop, or payload"
+            'Unknown module type UNKNOWN_MODULE_TYPE not: exploit, post, encoder, auxiliary, nop, or payload'
         );
 
         $moduleCollection->get();

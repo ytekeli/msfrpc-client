@@ -26,54 +26,54 @@ class ModuleResourceTest extends ClientTestCase
         parent::setUp();
 
         $this->info = collect([
-            'type' => 'exploit',
-            'fullname' => 'unix/ftp/vsftpd_234_backdoor'
+            'type'     => 'exploit',
+            'fullname' => 'unix/ftp/vsftpd_234_backdoor',
         ]);
 
         $this->options = [
             'option1' => [
-                'type' => 'bool',
+                'type'     => 'bool',
                 'required' => false,
                 'advanced' => true,
-                'evasion' => false,
-                'desc' => 'option1 desc',
-                'default' => false,
+                'evasion'  => false,
+                'desc'     => 'option1 desc',
+                'default'  => false,
             ],
             'option2' => [
-                'type' => 'integer',
+                'type'     => 'integer',
                 'required' => true,
                 'advanced' => false,
-                'evasion' => false,
-                'desc' => 'option2 desc',
+                'evasion'  => false,
+                'desc'     => 'option2 desc',
             ],
             'option3' => [
-                "type" => "string",
-                "required" => true,
-                "advanced" => false,
-                "evasion" => false,
-                "desc" => "option3 desc",
-                "default" => "/tmp",
+                'type'     => 'string',
+                'required' => true,
+                'advanced' => false,
+                'evasion'  => false,
+                'desc'     => 'option3 desc',
+                'default'  => '/tmp',
             ],
             'option4' => [
-                "type" => "integer",
-                "required" => false,
-                "advanced" => true,
-                "evasion" => false,
-                "desc" => "option4 desc",
-                "default" => 0,
+                'type'     => 'integer',
+                'required' => false,
+                'advanced' => true,
+                'evasion'  => false,
+                'desc'     => 'option4 desc',
+                'default'  => 0,
             ],
             'option5' => [
-                "type" => "bool",
-                "required" => false,
-                "advanced" => true,
-                "evasion" => false,
-                "desc" => "option5 desc",
-                "default" => false,
+                'type'     => 'bool',
+                'required' => false,
+                'advanced' => true,
+                'evasion'  => false,
+                'desc'     => 'option5 desc',
+                'default'  => false,
             ],
         ];
 
         $handler = $this->clientMock([
-            $this->createHttpResponsePack($this->options)
+            $this->createHttpResponsePack($this->options),
         ])->module;
 
         $this->module = new ModuleResource($this->info, $handler);
