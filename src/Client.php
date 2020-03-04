@@ -21,6 +21,8 @@ use Ytekeli\MsfRpcClient\Exception\MsfRpcException;
 use Ytekeli\MsfRpcClient\Handler\AuthHandler;
 use Ytekeli\MsfRpcClient\Handler\CoreHandler;
 use Ytekeli\MsfRpcClient\Handler\Exception as ExceptionHandler;
+use Ytekeli\MsfRpcClient\Handler\ModuleHandler;
+use Ytekeli\MsfRpcClient\Provider\ModuleServiceProvider;
 use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
 
 /**
@@ -28,6 +30,7 @@ use Ytekeli\MsfRpcClient\Support\MsfRpcMethod;
  *
  * @property AuthHandler    $auth
  * @property CoreHandler    $core
+ * @property ModuleHandler  $module
  * @property ExceptionHandler $exception
  */
 class Client extends Container
@@ -248,6 +251,7 @@ class Client extends Container
     {
         if ($noHandlers !== true) {
             $this->addHandler(new CoreHandler());
+            $this->addHandler(new ModuleHandler());
         }
     }
 

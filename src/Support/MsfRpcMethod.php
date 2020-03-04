@@ -30,4 +30,7 @@ class MsfRpcMethod
     const CORE_THREAD_LIST = 'core.thread_list';
     const CORE_THREAD_KILL = 'core.thread_kill';
     const MODULE_EXPLOITS = 'module.exploits';
+    const MODULE_INFO = 'module.info';
+    const MODULE_COMPATIBLE_PAYLOADS = 'module.compatible_payloads';
+    const MODULE_OPTIONS = 'module.options';
 }

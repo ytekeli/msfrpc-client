@@ -100,6 +100,14 @@ class ClientTestCase extends TestCase
         return $this->clientWithHttpMock($queues);
     }
 
+    public function fakeLogin()
+    {
+        return [
+            'result' => 'success',
+            'token' => $this->generateFakeToken()
+        ];
+    }
+
     public function fakeThreads()
     {
         return [
