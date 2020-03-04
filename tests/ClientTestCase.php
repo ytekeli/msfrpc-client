@@ -85,12 +85,13 @@ class ClientTestCase extends TestCase
             $queues[] = $this->createHttpResponsePack([]);
         }
 
-        foreach ($responseParams as $responseParam) {
+        foreach ($responseParams as $responseKey => $responseParam) {
             if (is_array($responseParam)) {
-                $queues[] = $this->createHttpResponsePack($responseParam);
+                $queues[] = $this->createHttpResponsePack(
+                    is_string($responseKey) ? [$responseKey => $responseParam] : $responseParam
+                );
             } elseif ($responseParam instanceof Response) {
                 $queues[] = $responseParam;
-                break;
             } else {
                 $queues[] = $this->createHttpResponsePack($responseParams);
                 break;

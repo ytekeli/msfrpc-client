@@ -10,6 +10,7 @@
 
 namespace Ytekeli\MsfRpcClient\Resource\Module;
 
+use Ytekeli\MsfRpcClient\Exception\MsfRpcException;
 use Ytekeli\MsfRpcClient\Handler\ModuleHandler;
 
 class ModuleCollection
@@ -55,5 +56,10 @@ class ModuleCollection
         if ($this->type == 'exploit') {
             return new ExploitModule($info, $this->handler);
         }
+
+        throw new \BadMethodCallException(sprintf(
+            'Unknown module type %s not: exploit, post, encoder, auxiliary, nop, or payload',
+            $this->type
+        ));
     }
 }

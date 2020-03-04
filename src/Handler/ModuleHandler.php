@@ -71,7 +71,9 @@ class ModuleHandler extends Handler
      */
     public function compatiblePayloads(string $moduleName = '')
     {
-        return $this->call(MsfRpcMethod::MODULE_COMPATIBLE_PAYLOADS, null, [$moduleName]);
+        return $this->call(MsfRpcMethod::MODULE_COMPATIBLE_PAYLOADS, function (Collection $items) {
+            return collect($items->get('payloads'));
+        }, [$moduleName]);
     }
 
     /**

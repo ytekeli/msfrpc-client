@@ -37,4 +37,22 @@ class ModuleCollectionTest extends ClientTestCase
         $this->assertEquals($collection->name, 'Blabla Exploit');
         $this->assertEquals($collection->fullname, 'exploits/windows/blabla');
     }
+
+    public function testItFailsWhenCallUnknownModuleMethod()
+    {
+        $moduleCollection = new ModuleCollection(
+            'UNKNOWN_MODULE_TYPE',
+            'exploit/aix/local/ibstat_path',
+            $this->clientMock([
+                'result' => 'fail'
+            ])->module
+        );
+
+        $this->expectException(\BadMethodCallException::class);
+        $this->expectExceptionMessage(
+            "Unknown module type UNKNOWN_MODULE_TYPE not: exploit, post, encoder, auxiliary, nop, or payload"
+        );
+
+        $moduleCollection->get();
+    }
 }
