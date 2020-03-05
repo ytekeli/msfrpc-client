@@ -17,10 +17,10 @@ use Ytekeli\MsfRpcClient\Handler\ModuleHandler;
  * @property string $type
  * @property string $name
  * @property string $fullname
- * @property array $advancedOptions;
- * @property array $evasionOptions;
- * @property array $requiredOptions;
- * @property array $runOptions;
+ * @property array $advancedOptions
+ * @property array $evasionOptions
+ * @property array $requiredOptions
+ * @property array $runOptions
  */
 class ModuleResource
 {
