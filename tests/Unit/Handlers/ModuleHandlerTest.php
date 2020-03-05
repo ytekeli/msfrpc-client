@@ -46,7 +46,7 @@ class ModuleHandlerTest extends ClientTestCase
     {
         $execute = $this->clientMock([
             'job_id' => 0,
-            'uuid' => 'yHKjJtaKzuuclfx7guF3UF6C',
+            'uuid'   => 'yHKjJtaKzuuclfx7guF3UF6C',
         ])->module->execute('exploit', 'scanner/netbios/nbname');
 
         $this->assertTrue($execute->success());
@@ -57,8 +57,8 @@ class ModuleHandlerTest extends ClientTestCase
     public function testExecuteMethodFailsWhenJobIdNotInteger()
     {
         $execute = $this->clientMock([
-            'job_id' => "None",
-            'uuid' => 'yHKjJtaKzuuclfx7guF3UF6C',
+            'job_id' => 'None',
+            'uuid'   => 'yHKjJtaKzuuclfx7guF3UF6C',
         ])->module->execute('exploit', 'scanner/netbios/nbname');
 
         $this->assertFalse($execute->success());
@@ -84,7 +84,7 @@ class ModuleHandlerTest extends ClientTestCase
         );
 
         $this->clientMock([
-            'error' => true,
+            'error'         => true,
             'error_message' => 'Invalid module.',
         ])->module->execute('exploit');
     }
