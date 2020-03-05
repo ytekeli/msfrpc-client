@@ -33,4 +33,5 @@ class MsfRpcMethod
     const MODULE_INFO = 'module.info';
     const MODULE_COMPATIBLE_PAYLOADS = 'module.compatible_payloads';
     const MODULE_OPTIONS = 'module.options';
+    const MODULE_EXECUTE = 'module.execute';
 }
