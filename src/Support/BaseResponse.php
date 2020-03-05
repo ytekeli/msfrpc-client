@@ -21,27 +21,54 @@ use Ytekeli\MsfRpcClient\Contract\Responsable;
 class BaseResponse implements Responsable
 {
     /**
-     * @var mixed
+     * @var Collection|null
      */
-    protected $result;
+    protected $response;
+
+    /**
+     * @var callable|null
+     */
+    protected $successCallback;
 
     /**
      * BaseResponse constructor.
      *
      * @param Collection|null $response
+     * @param callable|null $successCallback
      */
-    public function __construct(Collection $response = null)
+    public function __construct(Collection $response = null, $successCallback = null)
     {
-        if (!is_null($response)) {
-            $this->result = $response->get('result');
+        if (is_null($response)) {
+            $response = collect([]);
+        }
+
+        $this->response = $response;
+
+        if (is_callable($successCallback)) {
+            $this->successCallback = $successCallback;
         }
     }
 
     /**
+     * {@inheritDoc}
+     *
      * @return bool
      */
     public function success(): bool
     {
-        return $this->result === 'success';
+        if ($this->successCallback) {
+            return call_user_func($this->successCallback, $this->response);
+        }
+        return $this->response->get('result') === 'success';
+    }
+
+    /**
+     *
+     * @param string $key
+     * @return mixed
+     */
+    public function get(string $key = '')
+    {
+        return $this->response->get($key);
     }
 }
